@@ -22,7 +22,7 @@ data Colour = Red | Orange | Yellow | Green | Blue | Indigo | Violet
 firstColour = minBound :: Colour
 
 -- List the colours in reverse order
-reverseColourOrder = reverse $ [minBound .. maxBound] :: Colour
+reverseColourOrder = reverse $ [minBound .. maxBound] :: [Colour]
 
 {-
  - Mix two colours together, to produce the average value of the two.
@@ -32,7 +32,7 @@ reverseColourOrder = reverse $ [minBound .. maxBound] :: Colour
  - Hint: Integer division can be performed with the quot function: quot 7 2 = 3
  -}
 paintMix c1 c2 = colours !! res
-             where colours = [minBound .. maxBound] :: Colour
+             where colours = [minBound .. maxBound] :: [Colour]
                    positions = zip [1..] colours
-                   strength col = head[y|(x,y)<-positions, y==col]
+                   strength col = head[x|(x,y)<-positions, y==col]
                    res = (strength c1 + strength c2 + 1) `div` 2
